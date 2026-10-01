@@ -54,9 +54,7 @@
       bottom: 0;
       width: 100%;
       padding: 80px 45px 30px;
-
       color: white;
-
       background: linear-gradient(
         transparent,
         rgba(0, 0, 0, 0.9)
@@ -73,14 +71,11 @@
       display: inline-block;
       margin-top: 12px;
       padding: 9px 16px;
-
       border: 1px solid white;
       color: white;
-
       font-family: Arial, sans-serif;
       font-size: 14px;
       text-decoration: none;
-
       transition: 0.2s ease;
     }
 
@@ -95,14 +90,11 @@
       top: 50%;
       transform: translateY(-50%);
       z-index: 10;
-
       border: none;
       background: rgba(0, 0, 0, 0.4);
       color: white;
-
       font-size: 40px;
       padding: 8px 15px;
-
       cursor: pointer;
     }
 
@@ -122,10 +114,8 @@
     .dots {
       position: absolute;
       z-index: 10;
-
       right: 25px;
       bottom: 18px;
-
       display: flex;
       gap: 8px;
     }
@@ -133,10 +123,8 @@
     .dot {
       width: 10px;
       height: 10px;
-
       border-radius: 50%;
       background: rgba(255, 255, 255, 0.5);
-
       cursor: pointer;
     }
 
@@ -150,112 +138,89 @@
 
   <div class="carousel">
 
-    <!-- TECHNOLOGY -->
     <div class="slide active">
-
       <img
         src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj"
         alt="Technology and Architecture"
       >
 
       <div class="caption">
-
         <h2>Technology & Architecture</h2>
 
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/technology-and-architecture?authuser=1"
-          target="_top"
+          target="_self"
         >
           See More →
         </a>
-
       </div>
-
     </div>
 
 
-    <!-- GOVERNMENT -->
     <div class="slide">
-
       <img
         src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC"
         alt="Political System and Government"
       >
 
       <div class="caption">
-
         <h2>Political System & Government</h2>
 
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/political-system-and-government?authuser=1"
-          target="_top"
+          target="_self"
         >
           See More →
         </a>
-
       </div>
-
     </div>
 
 
-    <!-- RELIGION -->
     <div class="slide">
-
       <img
         src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x"
         alt="Religion"
       >
 
       <div class="caption">
-
         <h2>Religion</h2>
 
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/religion?authuser=1"
-          target="_top"
+          target="_self"
         >
           See More →
         </a>
-
       </div>
-
     </div>
 
 
-    <!-- GEOGRAPHY -->
     <div class="slide">
-
       <img
         src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_"
         alt="Geography"
       >
 
       <div class="caption">
-
         <h2>Geography</h2>
 
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/geography?authuser=1"
-          target="_top"
+          target="_self"
         >
           See More →
         </a>
-
       </div>
-
     </div>
 
 
-    <!-- ARROWS -->
     <button class="prev" aria-label="Previous slide">‹</button>
     <button class="next" aria-label="Next slide">›</button>
 
-
-    <!-- DOTS -->
     <div class="dots"></div>
 
   </div>
@@ -270,32 +235,22 @@
     let current = 0;
     let timer;
 
-
-    // CREATE DOTS
     slides.forEach((slide, index) => {
-
       const dot = document.createElement("div");
 
       dot.classList.add("dot");
 
       dot.addEventListener("click", () => {
-
         showSlide(index);
         restartTimer();
-
       });
 
       dotsContainer.appendChild(dot);
-
     });
-
 
     const dots = document.querySelectorAll(".dot");
 
-
-    // SHOW A SLIDE
     function showSlide(index) {
-
       slides[current].classList.remove("active");
       dots[current].classList.remove("active");
 
@@ -303,53 +258,30 @@
 
       slides[current].classList.add("active");
       dots[current].classList.add("active");
-
     }
 
-
-    // NEXT SLIDE
     function nextSlide() {
-
       showSlide(current + 1);
-
     }
 
-
-    // RESTART 3 SECOND TIMER
     function restartTimer() {
-
       clearInterval(timer);
-
       timer = setInterval(nextSlide, 3000);
-
     }
 
-
-    // NEXT BUTTON
     nextButton.addEventListener("click", () => {
-
       nextSlide();
       restartTimer();
-
     });
 
-
-    // PREVIOUS BUTTON
     prevButton.addEventListener("click", () => {
-
       showSlide(current - 1);
       restartTimer();
-
     });
 
-
-    // FIRST DOT ACTIVE
     dots[0].classList.add("active");
 
-
-    // AUTO ROTATE EVERY 3 SECONDS
     timer = setInterval(nextSlide, 3000);
-
   </script>
 
 </body>
