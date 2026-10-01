@@ -1,192 +1,356 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="UTF-8">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
-* {
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      box-sizing: border-box;
+    }
 
-html, body {
-  margin: 0;
-  padding: 0;
-  width: 100%;
-  overflow: hidden;
-  background: transparent;
-}
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      overflow: hidden;
+      background: transparent;
+    }
 
-.carousel {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 16 / 9;
-  overflow: hidden;
-  background: #111;
-}
+    .carousel {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      background: #111;
+    }
 
-.slide {
-  position: absolute;
-  inset: 0;
-  opacity: 0;
-  transition: opacity 0.8s ease;
-}
+    .slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
 
-.slide.active {
-  opacity: 1;
-  z-index: 1;
-}
+    .slide.active {
+      opacity: 1;
+      z-index: 1;
+      pointer-events: auto;
+    }
 
-.slide img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
+    .slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
 
-.caption {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  width: 100%;
-  padding: 70px 45px 30px;
-  color: white;
-  background: linear-gradient(transparent, rgba(0,0,0,.85));
-}
+    .caption {
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 80px 45px 30px;
 
-.caption h2 {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  font-size: 36px;
-}
+      color: white;
 
-.prev, .next {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  z-index: 10;
+      background: linear-gradient(
+        transparent,
+        rgba(0, 0, 0, 0.9)
+      );
+    }
 
-  border: 0;
-  background: rgba(0,0,0,.4);
-  color: white;
+    .caption h2 {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      font-size: 36px;
+    }
 
-  font-size: 40px;
-  padding: 8px 15px;
-  cursor: pointer;
-}
+    .see-more {
+      display: inline-block;
+      margin-top: 12px;
+      padding: 9px 16px;
 
-.prev { left: 15px; }
-.next { right: 15px; }
+      border: 1px solid white;
+      color: white;
 
-.dots {
-  position: absolute;
-  z-index: 10;
-  right: 25px;
-  bottom: 18px;
-  display: flex;
-  gap: 8px;
-}
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      text-decoration: none;
 
-.dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: rgba(255,255,255,.5);
-  cursor: pointer;
-}
+      transition: 0.2s ease;
+    }
 
-.dot.active {
-  background: white;
-}
-</style>
+    .see-more:hover {
+      background: white;
+      color: black;
+    }
+
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 10;
+
+      border: none;
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+
+      font-size: 40px;
+      padding: 8px 15px;
+
+      cursor: pointer;
+    }
+
+    .prev {
+      left: 15px;
+    }
+
+    .next {
+      right: 15px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background: rgba(0, 0, 0, 0.7);
+    }
+
+    .dots {
+      position: absolute;
+      z-index: 10;
+
+      right: 25px;
+      bottom: 18px;
+
+      display: flex;
+      gap: 8px;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background: white;
+    }
+  </style>
 </head>
 
 <body>
 
-<div class="carousel">
+  <div class="carousel">
 
-  <div class="slide active">
-    <img src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj">
-    <div class="caption"><h2>Government</h2></div>
+    <!-- TECHNOLOGY -->
+    <div class="slide active">
+
+      <img
+        src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj"
+        alt="Technology and Architecture"
+      >
+
+      <div class="caption">
+
+        <h2>Technology & Architecture</h2>
+
+        <a
+          class="see-more"
+          href="https://sites.google.com/k12.xrds.org/shangdynasty1/technology-and-architecture?authuser=1"
+          target="_top"
+        >
+          See More →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- GOVERNMENT -->
+    <div class="slide">
+
+      <img
+        src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC"
+        alt="Political System and Government"
+      >
+
+      <div class="caption">
+
+        <h2>Political System & Government</h2>
+
+        <a
+          class="see-more"
+          href="https://sites.google.com/k12.xrds.org/shangdynasty1/political-system-and-government?authuser=1"
+          target="_top"
+        >
+          See More →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- RELIGION -->
+    <div class="slide">
+
+      <img
+        src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x"
+        alt="Religion"
+      >
+
+      <div class="caption">
+
+        <h2>Religion</h2>
+
+        <a
+          class="see-more"
+          href="https://sites.google.com/k12.xrds.org/shangdynasty1/religion?authuser=1"
+          target="_top"
+        >
+          See More →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- GEOGRAPHY -->
+    <div class="slide">
+
+      <img
+        src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_"
+        alt="Geography"
+      >
+
+      <div class="caption">
+
+        <h2>Geography</h2>
+
+        <a
+          class="see-more"
+          href="https://sites.google.com/k12.xrds.org/shangdynasty1/geography?authuser=1"
+          target="_top"
+        >
+          See More →
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <!-- ARROWS -->
+    <button class="prev" aria-label="Previous slide">‹</button>
+    <button class="next" aria-label="Next slide">›</button>
+
+
+    <!-- DOTS -->
+    <div class="dots"></div>
+
   </div>
 
-  <div class="slide">
-    <img src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC">
-    <div class="caption"><h2>Religion</h2></div>
-  </div>
 
-  <div class="slide">
-    <img src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x">
-    <div class="caption"><h2>Technology</h2></div>
-  </div>
+  <script>
+    const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.querySelector(".dots");
+    const nextButton = document.querySelector(".next");
+    const prevButton = document.querySelector(".prev");
 
-  <div class="slide">
-    <img src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_">
-    <div class="caption"><h2>Writing</h2></div>
-  </div>
+    let current = 0;
+    let timer;
 
-  <button class="prev">‹</button>
-  <button class="next">›</button>
 
-  <div class="dots"></div>
+    // CREATE DOTS
+    slides.forEach((slide, index) => {
 
-</div>
+      const dot = document.createElement("div");
 
-<script>
-const slides = document.querySelectorAll(".slide");
-const dotsContainer = document.querySelector(".dots");
-const next = document.querySelector(".next");
-const prev = document.querySelector(".prev");
+      dot.classList.add("dot");
 
-let current = 0;
-let timer;
+      dot.addEventListener("click", () => {
 
-slides.forEach((slide, index) => {
-  const dot = document.createElement("div");
-  dot.classList.add("dot");
+        showSlide(index);
+        restartTimer();
 
-  dot.addEventListener("click", () => {
-    showSlide(index);
-    restartTimer();
-  });
+      });
 
-  dotsContainer.appendChild(dot);
-});
+      dotsContainer.appendChild(dot);
 
-const dots = document.querySelectorAll(".dot");
+    });
 
-function showSlide(index) {
-  slides[current].classList.remove("active");
-  dots[current].classList.remove("active");
 
-  current = (index + slides.length) % slides.length;
+    const dots = document.querySelectorAll(".dot");
 
-  slides[current].classList.add("active");
-  dots[current].classList.add("active");
-}
 
-function nextSlide() {
-  showSlide(current + 1);
-}
+    // SHOW A SLIDE
+    function showSlide(index) {
 
-function restartTimer() {
-  clearInterval(timer);
-  timer = setInterval(nextSlide, 3000);
-}
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
 
-next.addEventListener("click", () => {
-  nextSlide();
-  restartTimer();
-});
+      current = (index + slides.length) % slides.length;
 
-prev.addEventListener("click", () => {
-  showSlide(current - 1);
-  restartTimer();
-});
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
 
-dots[0].classList.add("active");
+    }
 
-timer = setInterval(nextSlide, 3000);
-</script>
+
+    // NEXT SLIDE
+    function nextSlide() {
+
+      showSlide(current + 1);
+
+    }
+
+
+    // RESTART 3 SECOND TIMER
+    function restartTimer() {
+
+      clearInterval(timer);
+
+      timer = setInterval(nextSlide, 3000);
+
+    }
+
+
+    // NEXT BUTTON
+    nextButton.addEventListener("click", () => {
+
+      nextSlide();
+      restartTimer();
+
+    });
+
+
+    // PREVIOUS BUTTON
+    prevButton.addEventListener("click", () => {
+
+      showSlide(current - 1);
+      restartTimer();
+
+    });
+
+
+    // FIRST DOT ACTIVE
+    dots[0].classList.add("active");
+
+
+    // AUTO ROTATE EVERY 3 SECONDS
+    timer = setInterval(nextSlide, 3000);
+
+  </script>
 
 </body>
 </html>
