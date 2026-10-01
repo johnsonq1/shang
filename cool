@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<style>
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  background: transparent;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #111;
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+
+.slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.caption {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  padding: 70px 45px 30px;
+  color: white;
+  background: linear-gradient(transparent, rgba(0,0,0,.85));
+}
+
+.caption h2 {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+}
+
+.prev, .next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+
+  border: 0;
+  background: rgba(0,0,0,.4);
+  color: white;
+
+  font-size: 40px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+.prev { left: 15px; }
+.next { right: 15px; }
+
+.dots {
+  position: absolute;
+  z-index: 10;
+  right: 25px;
+  bottom: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255,255,255,.5);
+  cursor: pointer;
+}
+
+.dot.active {
+  background: white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="carousel">
+
+  <div class="slide active">
+    <img src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj">
+    <div class="caption"><h2>Government</h2></div>
+  </div>
+
+  <div class="slide">
+    <img src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC">
+    <div class="caption"><h2>Religion</h2></div>
+  </div>
+
+  <div class="slide">
+    <img src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x">
+    <div class="caption"><h2>Technology</h2></div>
+  </div>
+
+  <div class="slide">
+    <img src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_">
+    <div class="caption"><h2>Writing</h2></div>
+  </div>
+
+  <button class="prev">‹</button>
+  <button class="next">›</button>
+
+  <div class="dots"></div>
+
+</div>
+
+<script>
+const slides = document.querySelectorAll(".slide");
+const dotsContainer = document.querySelector(".dots");
+const next = document.querySelector(".next");
+const prev = document.querySelector(".prev");
+
+let current = 0;
+let timer;
+
+slides.forEach((slide, index) => {
+  const dot = document.createElement("div");
+  dot.classList.add("dot");
+
+  dot.addEventListener("click", () => {
+    showSlide(index);
+    restartTimer();
+  });
+
+  dotsContainer.appendChild(dot);
+});
+
+const dots = document.querySelectorAll(".dot");
+
+function showSlide(index) {
+  slides[current].classList.remove("active");
+  dots[current].classList.remove("active");
+
+  current = (index + slides.length) % slides.length;
+
+  slides[current].classList.add("active");
+  dots[current].classList.add("active");
+}
+
+function nextSlide() {
+  showSlide(current + 1);
+}
+
+function restartTimer() {
+  clearInterval(timer);
+  timer = setInterval(nextSlide, 3000);
+}
+
+next.addEventListener("click", () => {
+  nextSlide();
+  restartTimer();
+});
+
+prev.addEventListener("click", () => {
+  showSlide(current - 1);
+  restartTimer();
+});
+
+dots[0].classList.add("active");
+
+timer = setInterval(nextSlide, 3000);
+</script>
+
+</body>
+</html>
