@@ -6,6 +6,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
     * {
       box-sizing: border-box;
     }
@@ -63,8 +65,9 @@
 
     .caption h2 {
       margin: 0;
-      font-family: Arial, sans-serif;
+      font-family: 'Merriweather', serif;
       font-size: 36px;
+      font-weight: 700;
     }
 
     .see-more {
@@ -73,8 +76,9 @@
       padding: 9px 16px;
       border: 1px solid white;
       color: white;
-      font-family: Arial, sans-serif;
+      font-family: 'Merriweather', serif;
       font-size: 14px;
+      font-weight: 400;
       text-decoration: none;
       transition: 0.2s ease;
     }
@@ -138,7 +142,6 @@
 
   <div class="carousel">
 
-    <!-- TECHNOLOGY & ARCHITECTURE -->
     <div class="slide active">
       <img
         src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj"
@@ -147,7 +150,6 @@
 
       <div class="caption">
         <h2>Technology &amp; Architecture</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/technology-and-architecture?authuser=1"
@@ -160,7 +162,6 @@
     </div>
 
 
-    <!-- POLITICAL SYSTEM -->
     <div class="slide">
       <img
         src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC"
@@ -169,7 +170,6 @@
 
       <div class="caption">
         <h2>Political System &amp; Government</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/political-system-and-government?authuser=1"
@@ -182,7 +182,6 @@
     </div>
 
 
-    <!-- RELIGION -->
     <div class="slide">
       <img
         src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x"
@@ -191,7 +190,6 @@
 
       <div class="caption">
         <h2>Religion</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/religion?authuser=1"
@@ -204,7 +202,6 @@
     </div>
 
 
-    <!-- GEOGRAPHY -->
     <div class="slide">
       <img
         src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_"
@@ -213,7 +210,6 @@
 
       <div class="caption">
         <h2>Geography</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/shangdynasty1/geography?authuser=1"
@@ -226,11 +222,9 @@
     </div>
 
 
-    <!-- ARROWS -->
     <button class="prev" type="button" aria-label="Previous slide">‹</button>
     <button class="next" type="button" aria-label="Next slide">›</button>
 
-    <!-- DOTS -->
     <div class="dots"></div>
 
   </div>
@@ -245,7 +239,6 @@
     let current = 0;
     let timer;
 
-    // Create one dot for each slide
     slides.forEach((slide, index) => {
       const dot = document.createElement("div");
 
@@ -290,10 +283,8 @@
       restartTimer();
     });
 
-    // Start on first slide
     dots[0].classList.add("active");
 
-    // Automatically change slide every 3 seconds
     timer = setInterval(nextSlide, 3000);
   </script>
 
