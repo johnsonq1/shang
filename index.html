@@ -5,12 +5,9 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Merriweather -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@400;700&display=swap');
+
     * {
       box-sizing: border-box;
     }
@@ -53,96 +50,85 @@
       display: block;
     }
 
-    .overlay {
+    .caption {
       position: absolute;
-      inset: 0;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      padding: 80px 45px 30px;
+      color: white;
       background: linear-gradient(
-        to top,
-        rgba(0, 0, 0, 0.75) 0%,
-        rgba(0, 0, 0, 0.25) 45%,
-        rgba(0, 0, 0, 0) 70%
+        transparent,
+        rgba(0, 0, 0, 0.9)
       );
     }
 
-    .content {
-      position: absolute;
-      left: 7%;
-      bottom: 10%;
-      color: white;
-      font-family: "Merriweather", serif;
-      z-index: 2;
-    }
-
-    .content h2 {
-      margin: 0 0 14px;
-      font-family: "Merriweather", serif;
-      font-size: clamp(22px, 4vw, 52px);
+    .caption h2 {
+      margin: 0;
+      font-family: 'Merriweather', serif;
+      font-size: 36px;
       font-weight: 700;
-      text-shadow: 0 2px 8px rgba(0, 0, 0, 0.65);
     }
 
     .see-more {
       display: inline-block;
+      margin-top: 12px;
+      padding: 9px 16px;
+      border: 1px solid white;
       color: white;
-      font-family: "Merriweather", serif;
-      font-size: clamp(12px, 1.5vw, 18px);
-      font-weight: 700;
+      font-family: 'Merriweather', serif;
+      font-size: 14px;
+      font-weight: 400;
       text-decoration: none;
-      border-bottom: 2px solid white;
-      padding-bottom: 4px;
-      transition: opacity 0.2s ease;
+      transition: 0.2s ease;
     }
 
     .see-more:hover {
-      opacity: 0.7;
+      background: white;
+      color: black;
     }
 
-    .arrow {
+    .prev,
+    .next {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      z-index: 5;
-
-      width: 46px;
-      height: 46px;
+      z-index: 10;
       border: none;
-      border-radius: 50%;
-
-      background: rgba(0, 0, 0, 0.45);
+      background: rgba(0, 0, 0, 0.4);
       color: white;
-
-      font-size: 28px;
+      font-size: 40px;
+      padding: 8px 15px;
       cursor: pointer;
     }
 
-    .arrow:hover {
-      background: rgba(0, 0, 0, 0.7);
-    }
-
     .prev {
-      left: 18px;
+      left: 15px;
     }
 
     .next {
-      right: 18px;
+      right: 15px;
+    }
+
+    .prev:hover,
+    .next:hover {
+      background: rgba(0, 0, 0, 0.7);
     }
 
     .dots {
       position: absolute;
-      bottom: 4%;
-      left: 50%;
-      transform: translateX(-50%);
-      z-index: 5;
-
+      z-index: 10;
+      right: 25px;
+      bottom: 18px;
       display: flex;
-      gap: 9px;
+      gap: 8px;
     }
 
     .dot {
-      width: 9px;
-      height: 9px;
+      width: 10px;
+      height: 10px;
       border-radius: 50%;
-      background: rgba(255, 255, 255, 0.45);
+      background: rgba(255, 255, 255, 0.5);
       cursor: pointer;
     }
 
@@ -156,143 +142,151 @@
 
   <div class="carousel">
 
-    <!-- TECHNOLOGY & ARCHITECTURE -->
     <div class="slide active">
-      <img src="IMAGE1.jpg" alt="Technology and Architecture">
+      <img
+        src="https://lh3.googleusercontent.com/d/15pcICebky2wS1FK6vGSH24gPOoIDb8sj"
+        alt="Technology and Architecture"
+      >
 
-      <div class="overlay"></div>
-
-      <div class="content">
-        <h2>Technology & Architecture</h2>
-
+      <div class="caption">
+        <h2>Technology &amp; Architecture</h2>
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/dynastyshang/technology-and-architecture"
-          target="_top"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          See More
+          See More →
         </a>
       </div>
     </div>
 
 
-    <!-- POLITICAL SYSTEM -->
     <div class="slide">
-      <img src="IMAGE2.jpg" alt="Political System and Government">
+      <img
+        src="https://lh3.googleusercontent.com/d/1dhTvMFphgFCJRbScefAnKy5nmKU87oXC"
+        alt="Political System and Government"
+      >
 
-      <div class="overlay"></div>
-
-      <div class="content">
-        <h2>Political System & Government</h2>
-
+      <div class="caption">
+        <h2>Political System &amp; Government</h2>
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/dynastyshang/political-system-and-government"
-          target="_top"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          See More
+          See More →
         </a>
       </div>
     </div>
 
 
-    <!-- RELIGION -->
     <div class="slide">
-      <img src="IMAGE3.jpg" alt="Religion">
+      <img
+        src="https://lh3.googleusercontent.com/d/1EsVb0il-cd7ISMuxPff_HEumurfkhy8x"
+        alt="Religion"
+      >
 
-      <div class="overlay"></div>
-
-      <div class="content">
+      <div class="caption">
         <h2>Religion</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/dynastyshang/religion"
-          target="_top"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          See More
+          See More →
         </a>
       </div>
     </div>
 
 
-    <!-- GEOGRAPHY -->
     <div class="slide">
-      <img src="IMAGE4.jpg" alt="Geography">
+      <img
+        src="https://lh3.googleusercontent.com/d/1Se_-ZA6EUaRMO3ZSXVv7Ry-rE47DeB5_"
+        alt="Geography"
+      >
 
-      <div class="overlay"></div>
-
-      <div class="content">
+      <div class="caption">
         <h2>Geography</h2>
-
         <a
           class="see-more"
           href="https://sites.google.com/k12.xrds.org/dynastyshang/geography"
-          target="_top"
+          target="_blank"
+          rel="noopener noreferrer"
         >
-          See More
+          See More →
         </a>
       </div>
     </div>
 
 
-    <!-- ARROWS -->
-    <button class="arrow prev" onclick="changeSlide(-1)">‹</button>
-    <button class="arrow next" onclick="changeSlide(1)">›</button>
+    <button class="prev" type="button" aria-label="Previous slide">‹</button>
+    <button class="next" type="button" aria-label="Next slide">›</button>
 
-
-    <!-- DOTS -->
-    <div class="dots">
-      <span class="dot active" onclick="goToSlide(0)"></span>
-      <span class="dot" onclick="goToSlide(1)"></span>
-      <span class="dot" onclick="goToSlide(2)"></span>
-      <span class="dot" onclick="goToSlide(3)"></span>
-    </div>
+    <div class="dots"></div>
 
   </div>
 
 
   <script>
     const slides = document.querySelectorAll(".slide");
+    const dotsContainer = document.querySelector(".dots");
+    const nextButton = document.querySelector(".next");
+    const prevButton = document.querySelector(".prev");
+
+    let current = 0;
+    let timer;
+
+    slides.forEach((slide, index) => {
+      const dot = document.createElement("div");
+
+      dot.classList.add("dot");
+
+      dot.addEventListener("click", () => {
+        showSlide(index);
+        restartTimer();
+      });
+
+      dotsContainer.appendChild(dot);
+    });
+
     const dots = document.querySelectorAll(".dot");
 
-    let currentSlide = 0;
-    let autoRotate;
-
     function showSlide(index) {
-      slides.forEach(slide => slide.classList.remove("active"));
-      dots.forEach(dot => dot.classList.remove("active"));
+      slides[current].classList.remove("active");
+      dots[current].classList.remove("active");
 
-      currentSlide = (index + slides.length) % slides.length;
+      current = (index + slides.length) % slides.length;
 
-      slides[currentSlide].classList.add("active");
-      dots[currentSlide].classList.add("active");
+      slides[current].classList.add("active");
+      dots[current].classList.add("active");
     }
 
-    function changeSlide(direction) {
-      showSlide(currentSlide + direction);
-      restartAutoRotate();
+    function nextSlide() {
+      showSlide(current + 1);
     }
 
-    function goToSlide(index) {
-      showSlide(index);
-      restartAutoRotate();
+    function restartTimer() {
+      clearInterval(timer);
+      timer = setInterval(nextSlide, 3000);
     }
 
-    function startAutoRotate() {
-      autoRotate = setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 5000);
-    }
+    nextButton.addEventListener("click", () => {
+      nextSlide();
+      restartTimer();
+    });
 
-    function restartAutoRotate() {
-      clearInterval(autoRotate);
-      startAutoRotate();
-    }
+    prevButton.addEventListener("click", () => {
+      showSlide(current - 1);
+      restartTimer();
+    });
 
-    startAutoRotate();
+    dots[0].classList.add("active");
+
+    timer = setInterval(nextSlide, 3000);
   </script>
 
 </body>
-
 </html>
